@@ -1,86 +1,236 @@
-
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
-<meta name="theme-color" content="#090909">
-<title>Cool Wave Admin | Product Management</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#090909">
+<title>Cool Wave Admin | Nested Categories</title>
 <style>
-:root{--bg:#080909;--panel:#121312;--panel2:#191a18;--orange:#ff7908;--orange2:#ff9b2f;--text:#f6f5f2;--muted:#a9aaa7;--line:#30312c;--red:#ff6262;--green:#82d68b}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 90% 0,rgba(255,121,8,.10),transparent 35%),var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.5}button,input,textarea,select{font:inherit}a{color:var(--orange2)}.wrap{width:min(1120px,calc(100% - 32px));margin:auto}.top{border-bottom:1px solid #252622;background:rgba(8,9,9,.9)}.topin{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:900;letter-spacing:.06em}.brand span{color:var(--orange)}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:.18em}.btn{border:1px solid var(--orange);border-radius:8px;background:var(--orange);color:#111;font-weight:800;padding:10px 15px;cursor:pointer}.btn.secondary{background:transparent;color:var(--text);border-color:#454640}.btn.danger{background:transparent;border-color:#743838;color:#ff8a8a}.btn:disabled{opacity:.5;cursor:not-allowed}.main{padding:34px 0 70px}.title-row{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:24px}.eyebrow{font-size:11px;color:var(--orange2);font-weight:900;letter-spacing:.2em;text-transform:uppercase}h1{font-size:clamp(28px,4vw,42px);margin:5px 0 8px;line-height:1.15}h2{font-size:20px;margin:0 0 16px}.muted{color:var(--muted);font-size:14px}.panel{background:rgba(18,19,18,.96);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:18px}.hidden{display:none!important}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}label{font-size:12px;color:#d2d2cd;font-weight:750}input,textarea,select{width:100%;border:1px solid #3b3c36;border-radius:8px;background:#0b0c0b;color:#f6f5f2;padding:11px 12px;outline:none}input:focus,textarea:focus,select:focus{border-color:var(--orange)}textarea{min-height:90px;resize:vertical}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.status{padding:11px 13px;border-radius:8px;background:#1b1c19;color:#d3d4ce;font-size:13px;margin:12px 0}.status.error{color:#ff9696;border:1px solid #663333}.status.ok{color:#a4e9ab;border:1px solid #2e5a35}.toolbar{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:14px}.products{display:grid;gap:10px}.item{display:grid;grid-template-columns:76px minmax(0,1fr) minmax(112px,auto) auto;gap:14px;align-items:center;background:#0c0d0c;border:1px solid #292a26;border-radius:10px;padding:12px}.stock-price{justify-self:end;align-self:start;text-align:right;min-width:100px;font-size:13px;line-height:1.55}.stock-price strong{display:block;color:#fff;font-size:14px;font-weight:850}.stock-price span{display:block;color:#ff9a43;font-weight:750}.stock-price .subtle{color:var(--muted);font-size:12px;font-weight:600}.thumb{width:76px;height:76px;border-radius:7px;object-fit:contain;background:#191a18}.item h3{margin:0 0 4px;font-size:15px}.item p{margin:0;color:var(--muted);font-size:12px}.pill{display:inline-block;font-size:10px;padding:3px 7px;border:1px solid #454640;border-radius:20px;color:#d1d2cb;margin-top:5px}.pill.live{border-color:#32613b;color:#a3e4ab}.pill.draft{border-color:#735126;color:#ffd09a}.login{max-width:440px;margin:6vh auto}.foot{color:#777970;font-size:11px;padding:20px 0 40px}.help{font-size:12px;color:#a9aaa7}.checkboxline{display:flex;align-items:center;gap:9px}.checkboxline input{width:auto;accent-color:var(--orange)}@media(max-width:650px){.grid{grid-template-columns:1fr}.field.full{grid-column:auto}.panel{padding:16px}.title-row{align-items:flex-start;flex-direction:column}.item{grid-template-columns:60px minmax(0,1fr) auto}.thumb{width:60px;height:60px}.item .stock-price{grid-column:3;grid-row:1;min-width:76px;font-size:12px}.item>div:nth-child(2){grid-column:2}.item .row{grid-column:1/-1}.topin{min-height:68px}.toolbar{align-items:stretch;flex-direction:column}}
+:root{--bg:#080909;--panel:#121312;--orange:#ff7908;--orange2:#ff9b2f;--text:#f6f5f2;--muted:#a9aaa7;--line:#30312c}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 90% 0,rgba(255,121,8,.1),transparent 35%),var(--bg);color:var(--text);font-family:system-ui,sans-serif;line-height:1.5}button,input,textarea,select{font:inherit}a{color:var(--orange2)}.wrap{width:min(1120px,calc(100% - 32px));margin:auto}.top{border-bottom:1px solid #252622}.topin{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:900;letter-spacing:.06em;color:var(--text);text-decoration:none}.brand span{color:var(--orange)}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:.18em}.btn{border:1px solid var(--orange);border-radius:8px;background:var(--orange);color:#111;font-weight:800;padding:10px 15px;cursor:pointer}.secondary{background:transparent;color:var(--text);border-color:#454640}.danger{background:transparent;border-color:#743838;color:#ff8a8a}.main{padding:34px 0 70px}.title-row,.toolbar,.row,.actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.title-row,.toolbar{justify-content:space-between}.eyebrow{font-size:11px;color:var(--orange2);font-weight:900;letter-spacing:.2em;text-transform:uppercase}h1{font-size:clamp(28px,4vw,42px);margin:5px 0 8px}h2{font-size:20px;margin:0 0 16px}.muted,.help{color:var(--muted);font-size:13px}.panel{background:rgba(18,19,18,.96);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:18px}.hidden{display:none!important}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{display:flex;flex-direction:column;gap:6px}.full{grid-column:1/-1}label{font-size:12px;font-weight:750}input,textarea,select{width:100%;border:1px solid #3b3c36;border-radius:8px;background:#0b0c0b;color:var(--text);padding:11px 12px}textarea{min-height:90px}.actions{margin-top:16px}.status{padding:11px 13px;border-radius:8px;background:#1b1c19;font-size:13px;margin:12px 0}.error{color:#ff9696;border:1px solid #663333}.ok{color:#a4e9ab;border:1px solid #2e5a35}.products{display:grid;gap:10px}.item{display:grid;grid-template-columns:76px minmax(0,1fr) minmax(112px,auto) auto;gap:14px;align-items:center;background:#0c0d0c;border:1px solid #292a26;border-radius:10px;padding:12px}.thumb{width:76px;height:76px;object-fit:contain;background:#191a18;border-radius:7px}.item h3{margin:0 0 4px;font-size:15px}.product-info{min-width:0}.stock-price{justify-self:end;align-self:start;text-align:right;min-width:100px;font-size:13px;line-height:1.55}.stock-price strong{display:block;color:#fff;font-size:14px;font-weight:850}.stock-price span{display:block;color:#ff9a43;font-weight:750}.item-actions{justify-content:flex-end}.item p{margin:0;color:var(--muted);font-size:12px}.pill{font-size:10px;padding:3px 7px;border:1px solid #454640;border-radius:20px}.live{color:#a3e4ab}.draft{color:#ffd09a}.login{max-width:440px;margin:6vh auto}.foot{color:#777970;font-size:11px;padding:20px 0 40px}.checkboxline{display:flex;align-items:center;gap:9px}.checkboxline input{width:auto}.product-tabs{gap:8px}.tab.active{background:var(--orange);color:#111;border-color:var(--orange)}.product-tabs .tab{padding:8px 12px}@media(max-width:650px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.panel{padding:16px}.title-row{align-items:flex-start;flex-direction:column}.item{grid-template-columns:60px minmax(0,1fr) auto;align-items:center}.thumb{width:60px;height:60px}.item .stock-price{grid-column:3;grid-row:1;min-width:76px;font-size:12px}.item .product-info{grid-column:2;grid-row:1;padding:0}.item .item-actions{grid-column:1/-1;justify-content:flex-end;grid-row:2;margin-top:4px}.toolbar{align-items:stretch;flex-direction:column}.search-filters{width:100%;align-items:stretch}.search-filters>input{min-width:0}.filter-cascade{display:grid;grid-template-columns:1fr;gap:8px;min-width:0;flex:1}.filter-cascade select{min-width:0}}
 </style>
 </head>
 <body>
 <header class="top"><div class="wrap topin"><a href="index.html" class="brand">COOL <span>WAVE</span><small>REFRIGERATION · ADMIN</small></a><div class="row"><a href="index.html">View public website ↗</a><button id="logoutBtn" class="btn secondary hidden">Sign out</button></div></div></header>
 <main class="wrap main">
-<section id="loginPanel" class="panel login">
-<div class="eyebrow">Private area</div><h1>Administrator login</h1><p class="muted">Sign in with the administrator account created in Supabase Authentication.</p>
-<form id="loginForm"><div class="field"><label for="email">Email</label><input id="email" type="email" autocomplete="username" required></div><div class="field" style="margin-top:12px"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required></div><div class="actions"><button class="btn" type="submit">Sign in</button></div></form>
-<div id="loginStatus" class="status hidden" role="status"></div>
-<p class="help">Admin access is enforced by Supabase Auth and database policies, not just by hiding this page. Do not create a public sign-up link.</p>
+<section id="loginPanel" class="panel login"><div class="eyebrow">Administrator area</div><h1>Administrator login</h1><p class="muted">Sign in with your existing Cool Wave administrator account.</p>
+<form id="loginForm"><div class="field"><label>Email</label><input id="email" type="email" autocomplete="username" required></div><div class="field" style="margin-top:12px"><label>Password</label><input id="password" type="password" autocomplete="current-password" required></div><div class="actions"><button class="btn">Sign in</button></div></form><div id="loginStatus" class="status hidden"></div><p class="help">Admin access is enforced by Supabase Auth and database policies. Do not create a public sign-up link.</p></section>
+<section id="dashboard" class="hidden"><div class="title-row"><div><div class="eyebrow">Admin dashboard</div><h1>Products</h1></div><div class="row"><button id="manageCategoriesBtn" class="btn secondary" type="button">Manage Categories</button><button id="newProductBtn" class="btn">＋ Add product</button></div></div><div id="status" class="status hidden"></div>
+<section class="panel hidden" id="categoryManager">
+  <div class="title-row"><h2>Manage Categories</h2><button id="closeCategoriesBtn" class="btn secondary" type="button">Done</button></div>
+  <form id="categoryForm" class="grid">
+    <input id="categoryId" type="hidden">
+    <div class="field"><label>Category name</label><input id="categoryName" maxlength="120" required placeholder="e.g. Rotary Compressors"></div>
+    <div class="field"><label>Place under category</label><div id="categoryParentCascade" class="grid"><select id="categoryParentLevel0" aria-label="Main category"><option value="">None — A New Main Category</option></select></div><select id="categoryParent" class="hidden" aria-hidden="true" tabindex="-1"><option value="">None — A New Main Category</option></select><div class="help">Choose a main category, then its subcategory level by level. Leave the first choice as “None” to create a new main category.</div></div>
+    <div class="field full"><p class="help">The permanent Uncategorized / Reassign Later category is system-managed and cannot be created or edited here.</p></div>
+    <div class="actions full"><button id="saveCategoryBtn" class="btn">Create category</button><button id="cancelCategoryBtn" class="btn secondary hidden" type="button">Cancel edit</button></div>
+  </form>
+  <div id="categoryStatus" class="status hidden"></div>
+  <div id="categoryTree" class="products"></div><p id="noCategories" class="muted hidden">No categories yet.</p>
 </section>
-<section id="dashboard" class="hidden">
-<div class="title-row"><div><div class="eyebrow">Product management</div><h1>Your product catalogue</h1><p class="muted">Add products, set stock and price privately, and publish only when you're ready. Stock and price are managed here in the admin page.</p></div><button id="newProductBtn" class="btn">＋ Add product</button></div>
-<div id="status" class="status hidden" role="status"></div>
-<section id="editor" class="panel hidden">
-<h2 id="editorTitle">Add a product</h2>
-<form id="productForm">
-<input id="productId" type="hidden">
-<div class="grid">
-<div class="field"><label for="name">Product name *</label><input id="name" maxlength="160" required placeholder="e.g. Refrigeration compressor"></div>
-<div class="field"><label for="category">Category *</label><select id="category" required><option value="">Choose a category</option><option>Air conditioners</option><option>Compressors</option><option>Condensers</option><option>Evaporators</option><option>Fans & motors</option><option>Filters</option><option>Refrigerants</option><option>Copper & fittings</option><option>Valves</option><option>Controls</option><option>Remotes</option><option>Electrical</option><option>Insulation & drainage</option><option>Tools & gauges</option><option>Other</option></select></div>
-<div class="field"><label for="brand">Brand (optional)</label><input id="brand" maxlength="100" placeholder="Brand"></div>
-<div class="field"><label for="model">Model / part number (optional)</label><input id="model" maxlength="120" placeholder="Model or part number"></div>
-<div class="field"><label for="stockPcs">Stock *</label><input id="stockPcs" type="number" min="0" step="1" required value="0" inputmode="numeric" placeholder="Enter stock quantity"></div>
-<div class="field"><label for="price">Price</label><input id="price" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Enter price"></div>
-<div class="field full"><label for="description">Description (optional)</label><textarea id="description" maxlength="1500" placeholder="Short description of the product"></textarea></div>
-<div class="field full"><label for="specifications">Technical specifications (optional)</label><textarea id="specifications" maxlength="2500" placeholder="Capacity, dimensions, voltage, compatibility, etc."></textarea></div>
-<div class="field full"><label for="image">Main product image</label><input id="image" type="file" accept="image/jpeg,image/png,image/webp"><div class="help">Use JPG, PNG or WebP, up to 5 MB. Upload a clear product photo.</div><img id="imagePreview" class="thumb hidden" alt="Product image preview"></div>
-<div class="field full"><label class="checkboxline"><input id="published" type="checkbox"> Publish on the public website</label><div class="help">Leave unchecked to save as a draft. You can publish it later.</div></div>
-</div>
-<div class="actions"><button id="saveBtn" class="btn" type="submit">Save product</button><button id="cancelBtn" type="button" class="btn secondary">Cancel</button></div>
-</form>
-</section>
-<section class="panel">
-<div class="toolbar"><div><h2 style="margin:0">All products</h2><div class="muted">Drafts are visible only to signed-in administrators.</div></div><div class="row" style="flex:1;justify-content:flex-end"><input id="adminSearch" type="search" placeholder="Search products…" style="max-width:260px;flex:1"><select id="categoryFilter" aria-label="Filter products by category" style="max-width:220px;flex:1"><option value="">All categories</option></select></div></div>
-<div id="adminProducts" class="products"></div><p id="noProducts" class="muted hidden">No products yet. Select “Add product” to create your first listing.</p>
-</section>
-</section>
-</main>
-<footer class="wrap foot">Cool Wave Refrigeration · Private product administration</footer>
+<section id="editor" class="panel hidden"><h2 id="editorTitle">Add a product</h2><form id="productForm"><input id="productId" type="hidden"><div class="grid">
+<div class="field"><label>Product name</label><input id="name" maxlength="160" required></div>
+<div class="field"><label>Stock</label><input id="stockPcs" type="number" min="0" step="1" required value="0"></div><div class="field"><label>Price</label><input id="price" type="number" min="0" step=".01"></div>
+<div class="field"><label>Category</label><div id="categoryCascade" class="grid"><select id="categoryLevel0" aria-label="Main category"><option value="">Choose a main category</option></select></div><select id="category" class="hidden" aria-hidden="true" tabindex="-1"><option value="">Choose a category</option></select><div class="help">Choose a main category, then select each subcategory level that appears. You can go as deep as needed. Products in Uncategorized / Reassign Later remain saved until you manually reassign them.</div></div>
+<div class="field"><label>Brand (optional)</label><input id="brand"></div><div class="field"><label>Model / part number</label><input id="model"></div>
+<div class="field full"><label>Description</label><textarea id="description"></textarea></div><div class="field full"><label>Technical specifications</label><textarea id="specifications"></textarea></div>
+<div class="field full"><label>Main product image</label><input id="image" type="file" accept="image/jpeg,image/png,image/webp"><div class="help">JPG, PNG or WebP, up to 5 MB.</div><img id="imagePreview" class="thumb hidden" alt="Preview"></div>
+<div class="field full"><label class="checkboxline"><input id="published" type="checkbox"> Publish on the public website</label><div class="help">Leave unchecked to save as a draft.</div></div></div>
+<div class="actions"><button id="saveBtn" class="btn">Save product</button><button id="cancelBtn" type="button" class="btn secondary">Cancel</button></div></form></section>
+<section class="panel"><div class="toolbar"><div class="row product-tabs"><button type="button" class="btn tab active" data-product-tab="all">All products</button><button type="button" class="btn secondary tab" data-product-tab="published">Published</button><button type="button" class="btn secondary tab" data-product-tab="drafts">Drafts</button></div><div class="row search-filters"><input id="adminSearch" type="search" placeholder="Search products…"><div id="categoryFilterCascade" class="filter-cascade"><select id="categoryFilterLevel0" aria-label="Filter by main category"><option value="">All categories</option></select></div></div></div><div id="adminProducts" class="products"></div><p id="noProducts" class="muted hidden">No products yet.</p></section></section>
+</main><footer class="wrap foot">Cool Wave Refrigeration · Test administration only</footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
-/* Paste the same Supabase project URL and publishable/anon key used in index.html. Never use a service_role key here. */
-const SUPABASE_URL = "https://nlcnmccyfefsgfqfpbuk.supabase.co";
-const SUPABASE_ANON_KEY = "sb_publishable_MSBluw8wTfZR-3D-hVmh0A_s5P2V6uJ";
-const BUCKET = "product-images";
-const configured = !SUPABASE_URL.startsWith('YOUR_') && !SUPABASE_ANON_KEY.startsWith('YOUR_');
-const sb = configured ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
-const $ = id => document.getElementById(id);
-const loginPanel=$('loginPanel'), dashboard=$('dashboard'), editor=$('editor'), status=$('status');
-let products=[], currentImageUrl=null, pendingFile=null;
-function escapeHTML(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-function showStatus(message,kind=''){status.textContent=message;status.className='status '+kind;status.classList.remove('hidden');}
-function showLoginStatus(message,kind='error'){$('loginStatus').textContent=message;$('loginStatus').className='status '+kind;$('loginStatus').classList.remove('hidden');}
-function setSignedIn(signedIn){loginPanel.classList.toggle('hidden',signedIn);dashboard.classList.toggle('hidden',!signedIn);$('logoutBtn').classList.toggle('hidden',!signedIn);}
-function resetForm(){ $('productForm').reset();$('productId').value='';$('editorTitle').textContent='Add a product';currentImageUrl=null;pendingFile=null;$('imagePreview').src='';$('imagePreview').classList.add('hidden');$('editor').classList.add('hidden');}
-function productValues(){return {name:$('name').value.trim(),category:$('category').value,brand:$('brand').value.trim()||null,model_number:$('model').value.trim()||null,stock_pcs:Math.max(0,Math.trunc(Number($('stockPcs').value)||0)),price:$('price').value.trim()===''?null:Number($('price').value),description:$('description').value.trim()||null,specifications:$('specifications').value.trim()||null,image_url:currentImageUrl,is_published:$('published').checked};}
-function updateCategoryFilter(){const filter=$('categoryFilter');const selected=filter.value;const categories=[...new Set(products.map(p=>(p.category||'').trim()).filter(Boolean))].sort((a,b)=>a.localeCompare(b));filter.innerHTML='<option value="">All categories</option>'+categories.map(c=>`<option value="${escapeHTML(c)}">${escapeHTML(c)}</option>`).join('');if(categories.includes(selected))filter.value=selected;}
-function renderAdminProducts(){const q=$('adminSearch').value.toLowerCase().trim();const category=$('categoryFilter').value;const filtered=products.filter(p=>(!category||p.category===category)&&[p.name,p.category,p.brand,p.model_number].filter(Boolean).join(' ').toLowerCase().includes(q));$('adminProducts').innerHTML=filtered.map(p=>`<article class="item"><img class="thumb" src="${escapeHTML(p.image_url||'')}" alt="" onerror="this.style.visibility='hidden'"><div><h3>${escapeHTML(p.name)}</h3><p>${escapeHTML(p.category)}${p.brand?' · '+escapeHTML(p.brand):''}${p.model_number?' · '+escapeHTML(p.model_number):''}</p><span class="pill ${p.is_published?'live':'draft'}">${p.is_published?'Published':'Draft'}</span></div><div class="stock-price"><strong>Stock: ${escapeHTML(p.stock_pcs??0)}</strong><span>Price: ${p.price===null||p.price===undefined||p.price===''?'—':escapeHTML(Number(p.price).toLocaleString(undefined,{minimumFractionDigits:0,maximumFractionDigits:2}))}</span></div><div class="row"><button class="btn secondary" data-edit="${p.id}">Edit</button><button class="btn secondary" data-toggle="${p.id}">${p.is_published?'Unpublish':'Publish'}</button><button class="btn danger" data-delete="${p.id}">Delete</button></div></article>`).join('');$('noProducts').classList.toggle('hidden',filtered.length!==0);$('adminProducts').querySelectorAll('[data-edit]').forEach(b=>b.addEventListener('click',()=>editProduct(b.dataset.edit)));$('adminProducts').querySelectorAll('[data-toggle]').forEach(b=>b.addEventListener('click',()=>togglePublished(b.dataset.toggle)));$('adminProducts').querySelectorAll('[data-delete]').forEach(b=>b.addEventListener('click',()=>deleteProduct(b.dataset.delete)));}
-async function loadProducts(){const {data,error}=await sb.from('products').select('*').order('created_at',{ascending:false});if(error){showStatus('Could not load products: '+error.message,'error');return;}products=data||[];updateCategoryFilter();renderAdminProducts();}
-function editProduct(id){const p=products.find(x=>x.id===id);if(!p)return;resetForm();$('productId').value=p.id;$('editorTitle').textContent='Edit product';$('name').value=p.name||'';$('category').value=p.category||'';$('brand').value=p.brand||'';$('model').value=p.model_number||'';$('stockPcs').value=p.stock_pcs??0;$('price').value=p.price===null||p.price===undefined?'':p.price;$('description').value=p.description||'';$('specifications').value=p.specifications||'';$('published').checked=!!p.is_published;currentImageUrl=p.image_url||null;if(currentImageUrl){$('imagePreview').src=currentImageUrl;$('imagePreview').classList.remove('hidden');}editor.classList.remove('hidden');editor.scrollIntoView({behavior:'smooth',block:'start'});}
-async function uploadImage(file){if(!file)return currentImageUrl;if(file.size>5*1024*1024)throw new Error('Image must be 5 MB or smaller.');if(!['image/jpeg','image/png','image/webp'].includes(file.type))throw new Error('Use a JPG, PNG, or WebP image.');const ext=file.type==='image/png'?'png':file.type==='image/webp'?'webp':'jpg';const path=`${crypto.randomUUID()}.${ext}`;const {error}=await sb.storage.from(BUCKET).upload(path,file,{contentType:file.type,upsert:false});if(error)throw error;const {data}=sb.storage.from(BUCKET).getPublicUrl(path);return data.publicUrl;}
-$('loginForm').addEventListener('submit',async e=>{e.preventDefault();if(!configured){showLoginStatus('Supabase is not configured. Add your project URL and publishable/anon key in admin.html.');return;}const {error}=await sb.auth.signInWithPassword({email:$('email').value.trim(),password:$('password').value});if(error){showLoginStatus(error.message);return;}await initSession();});
-$('logoutBtn').addEventListener('click',async()=>{await sb.auth.signOut();setSignedIn(false);});
-$('newProductBtn').addEventListener('click',()=>{resetForm();editor.classList.remove('hidden');editor.scrollIntoView({behavior:'smooth',block:'start'});});
-$('cancelBtn').addEventListener('click',resetForm);
-$('image').addEventListener('change',()=>{pendingFile=$('image').files[0]||null;if(pendingFile){$('imagePreview').src=URL.createObjectURL(pendingFile);$('imagePreview').classList.remove('hidden');}});
-$('productForm').addEventListener('submit',async e=>{e.preventDefault();if(!configured)return;const saveBtn=$('saveBtn');saveBtn.disabled=true;saveBtn.textContent='Saving…';try{currentImageUrl=await uploadImage(pendingFile);const values=productValues();const id=$('productId').value;const result=id?await sb.from('products').update(values).eq('id',id):await sb.from('products').insert(values);if(result.error)throw result.error;showStatus(id?'Product updated.':'Product added.','ok');resetForm();await loadProducts();}catch(err){showStatus('Could not save product: '+err.message,'error');}finally{saveBtn.disabled=false;saveBtn.textContent='Save product';}});
-async function togglePublished(id){const p=products.find(x=>x.id===id);if(!p)return;const {error}=await sb.from('products').update({is_published:!p.is_published}).eq('id',id);if(error){showStatus('Could not update publishing status: '+error.message,'error');return;}showStatus(p.is_published?'Product unpublished.':'Product published.','ok');await loadProducts();}
-async function deleteProduct(id){const p=products.find(x=>x.id===id);if(!p||!confirm('Delete “'+p.name+'”? This cannot be undone.'))return;const {error}=await sb.from('products').delete().eq('id',id);if(error){showStatus('Could not delete product: '+error.message,'error');return;}showStatus('Product deleted.','ok');await loadProducts();}
-$('adminSearch').addEventListener('input',renderAdminProducts);$('categoryFilter').addEventListener('change',renderAdminProducts);
-async function initSession(){if(!configured){setSignedIn(false);return;}const {data:{session}}=await sb.auth.getSession();if(session){setSignedIn(true);await loadProducts();}else setSignedIn(false);sb.auth.onAuthStateChange((_event,newSession)=>{if(newSession){setSignedIn(true);loadProducts();}else setSignedIn(false);});}
-initSession();
-</script>
-</body></html>
+/* TEST PROJECT ONLY. Never use a service_role key here. */
+const SUPABASE_URL="https://nlcnmccyfefsgfqfpbuk.supabase.co";
+const SUPABASE_ANON_KEY="sb_publishable_MSBluw8wTfZR-3D-HVmh0A_s5P2V6uJ";
+const BUCKET="product-images",sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY),$=id=>document.getElementById(id);
+let products=[],categories=[],currentImageUrl=null,pendingFile=null,productTab="all",categoryFilterId="";
+const loginPanel=$("loginPanel"),dashboard=$("dashboard"),editor=$("editor"),status=$("status");
+function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+function msg(t,k=""){status.textContent=t;status.className="status "+k;status.classList.remove("hidden");}
+function loginMsg(t){$("loginStatus").textContent=t;$("loginStatus").className="status error";$("loginStatus").classList.remove("hidden");}
+function signed(v){loginPanel.classList.toggle("hidden",v);dashboard.classList.toggle("hidden",!v);$("logoutBtn").classList.toggle("hidden",!v);}
+function reset(){ $("productForm").reset();$("productId").value="";$("editorTitle").textContent="Add a product";currentImageUrl=null;pendingFile=null;$("imagePreview").src="";$("imagePreview").classList.add("hidden");editor.classList.add("hidden");}
+function selectedCategory(){return categories.find(c=>c.id===$("category").value)||null;}
+function categoryPath(id){let parts=[],seen=new Set(),cur=categories.find(c=>c.id===id);while(cur&&!seen.has(cur.id)){seen.add(cur.id);parts.unshift(cur.name);cur=categories.find(c=>c.id===cur.parent_id);}return parts.join(" / ");}
+function values(){let c=selectedCategory();return {name:$("name").value.trim(),category:c?categoryPath(c.id):"",category_node_id:c?c.id:null,subcategory:c&&c.parent_id?c.name:null,brand:$("brand").value.trim()||null,model_number:$("model").value.trim()||null,stock_pcs:Math.max(0,Math.trunc(Number($("stockPcs").value)||0)),price:$("price").value.trim()===""?null:Number($("price").value),description:$("description").value.trim()||null,specifications:$("specifications").value.trim()||null,image_url:currentImageUrl,is_published:$("published").checked};}
+function categoryMsg(t,k=""){const el=$("categoryStatus");el.textContent=t;el.className="status "+k;el.classList.remove("hidden");}
+function sortCategories(){categories.sort((a,b)=>String(a.name).localeCompare(String(b.name)));}
+function buildCategoryOptions(selectedId=null){
+  const productSelect=$("category"),oldProduct=selectedId||productSelect.value;
+  const visible=categories.filter(c=>!c.is_internal);
+  const holding=categories.find(c=>c.is_internal && (c.name||"").trim().toLowerCase()==="uncategorized / reassign later");
+  function walk(parentId,depth,out){visible.filter(c=>(c.parent_id||null)===(parentId||null)).forEach(c=>{out.push({c,depth});walk(c.id,depth+1,out);});}
+  const rows=[];walk(null,0,rows);
+  productSelect.innerHTML='<option value="">Choose a category</option>'+rows.map(({c,depth})=>`<option value="${esc(c.id)}" data-path="${esc(categoryPath(c.id)||c.name)}">${"— ".repeat(depth)}${esc(c.name)}</option>`).join("")+(holding?`<option value="${esc(holding.id)}" data-path="${esc(holding.name)}">${esc(holding.name)} (Admin only)</option>`:"");
+  if(rows.some(r=>r.c.id===oldProduct)||holding?.id===oldProduct) productSelect.value=oldProduct;
+  buildCategoryParentCascade($("categoryParent").value||null);
+  buildCategoryCascade(productSelect.value||oldProduct||null);
+}
+function syncCategoryParent(){
+  const holder=$("categoryParentCascade"),hidden=$("categoryParent");
+  let deepest="";
+  holder.querySelectorAll("select").forEach(select=>{if(select.value)deepest=select.value;});
+  hidden.value=deepest;
+  return deepest||null;
+}
+function buildCategoryParentCascade(selectedParentId=null){
+  const holder=$("categoryParentCascade"),hidden=$("categoryParent"),editingId=$("categoryId").value;
+  const excluded=new Set();
+  if(editingId){
+    const addDescendants=id=>categories.filter(c=>c.parent_id===id).forEach(c=>{if(!excluded.has(c.id)){excluded.add(c.id);addDescendants(c.id);}});
+    excluded.add(editingId);addDescendants(editingId);
+  }
+  const available=categories.filter(c=>!c.is_internal&&!excluded.has(c.id));
+  let path=[];const selected=available.find(c=>c.id===selectedParentId);
+  if(selected){let cur=selected,guard=new Set();while(cur&&!guard.has(cur.id)){guard.add(cur.id);path.unshift(cur);cur=available.find(c=>c.id===cur.parent_id);}}
+  holder.innerHTML='';hidden.value='';
+  function addLevel(parentId,depth){
+    const children=available.filter(c=>(c.parent_id||null)===(parentId||null)).sort((a,b)=>a.name.localeCompare(b.name));
+    const select=document.createElement('select');
+    select.setAttribute('aria-label',depth===0?'Main category':`Subcategory level ${depth}`);
+    const placeholder=depth===0?'None — A New Main Category':`Choose subcategory level ${depth}`;
+    select.innerHTML=`<option value="">${placeholder}</option>`+children.map(c=>`<option value="${esc(c.id)}">${esc(c.name)}${c.is_internal?' (Internal)':''}</option>`).join('');
+    const wanted=path[depth]?.id;if(wanted&&children.some(c=>c.id===wanted))select.value=wanted;
+    holder.appendChild(select);
+    select.addEventListener('change',()=>{
+      // Remove all deeper levels, then rebuild from the newly selected node.
+      let next=select.nextElementSibling;while(next){const remove=next;next=next.nextElementSibling;remove.remove();}
+      syncCategoryParent();
+      if(select.value)addLevel(select.value,depth+1);
+      syncCategoryParent();
+    });
+    if(select.value)addLevel(select.value,depth+1);
+  }
+  addLevel(null,0);
+  syncCategoryParent();
+}
+function buildCategoryCascade(selectedId=null){
+  const holder=$("categoryCascade"),productSelect=$("category");
+  const visible=categories.filter(c=>!c.is_internal);
+  const holding=categories.find(c=>c.is_internal && (c.name||"").trim().toLowerCase()==="uncategorized / reassign later");
+  const selected=categories.find(c=>c.id===selectedId);
+  let path=[];
+  if(selected){let cur=selected,guard=new Set();while(cur&&!guard.has(cur.id)){guard.add(cur.id);path.unshift(cur);cur=categories.find(c=>c.id===cur.parent_id);}}
+  holder.innerHTML='';
+  function addLevel(parentId,depth){
+    let children=visible.filter(c=>(c.parent_id||null)===(parentId||null)).sort((a,b)=>a.name.localeCompare(b.name));
+    if(depth===0 && holding) children=[...children,holding];
+    if(!children.length)return;
+    const select=document.createElement('select');
+    select.setAttribute('aria-label',depth===0?'Main category':`Subcategory level ${depth}`);
+    select.innerHTML=`<option value="">${depth===0?'Choose a main category':`Choose subcategory level ${depth}`}</option>`+children.map(c=>`<option value="${esc(c.id)}">${esc(c.name)}${c.is_internal?' (Admin only)':''}</option>`).join('');
+    const wanted=path[depth]?.id;
+    if(wanted&&children.some(c=>c.id===wanted))select.value=wanted;
+    holder.appendChild(select);
+    select.onchange=()=>{
+      while(select.nextElementSibling)select.nextElementSibling.remove();
+      productSelect.value=select.value||'';
+      if(select.value)addLevel(select.value,depth+1);
+    };
+    if(select.value)addLevel(select.value,depth+1);
+  }
+  addLevel(null,0);
+  productSelect.value=path.length?path[path.length-1].id:'';
+}
+
+function renderCategoryTree(){
+  const tree=$("categoryTree");
+  function isPermanentHolding(c){return !!c.is_internal && (c.name||"").trim().toLowerCase()==="uncategorized / reassign later";}
+  function row(c,depth){const children=categories.filter(x=>x.parent_id===c.id).sort((a,b)=>a.name.localeCompare(b.name));const protectedCategory=isPermanentHolding(c);const controls=protectedCategory?'<span class="pill live">Permanent · cannot be deleted</span>':`<button type="button" class="btn secondary" data-cat-edit="${esc(c.id)}">Edit</button><button type="button" class="btn danger" data-cat-delete="${esc(c.id)}">Delete</button>`;return `<article class="item" style="grid-template-columns:minmax(0,1fr) auto;margin-left:${Math.min(depth,5)*12}px"><div><h3>${"↳ ".repeat(depth)}${esc(c.name)} ${c.is_internal?'<span class="pill">Internal</span>':""}</h3><p>${children.length} subcategor${children.length===1?"y":"ies"}</p></div><div class="row">${controls}</div></article>`+children.map(ch=>row(ch,depth+1)).join("");}
+  const roots=categories.filter(c=>!c.parent_id).sort((a,b)=>a.name.localeCompare(b.name));
+  tree.innerHTML=roots.map(c=>row(c,0)).join("");
+  $("noCategories").classList.toggle("hidden",categories.length>0);
+  tree.querySelectorAll("[data-cat-edit]").forEach(b=>b.onclick=()=>editCategory(b.dataset.catEdit));
+  tree.querySelectorAll("[data-cat-delete]").forEach(b=>b.onclick=()=>deleteCategory(b.dataset.catDelete));
+}
+async function loadCategories(){
+  const {data,error}=await sb.from("product_categories").select("id,name,parent_id,is_internal,sort_order,created_at").order("name");
+  if(error){categoryMsg("Could not load categories: "+error.message,"error");return;}
+  categories=data||[];sortCategories();buildCategoryOptions();renderCategoryTree();
+}
+function resetCategoryForm(){ $("categoryForm").reset();$("categoryId").value="";$("saveCategoryBtn").textContent="Create category";$("cancelCategoryBtn").classList.add("hidden");buildCategoryParentCascade(null);}
+function editCategory(id){
+  const c=categories.find(x=>x.id===id);if(!c)return;
+  if(c.is_internal){categoryMsg('The permanent Uncategorized / Reassign Later category cannot be edited.',"error");return;}
+  $("categoryId").value=c.id;$("categoryName").value=c.name;$("categoryParent").value=c.parent_id||"";buildCategoryParentCascade(c.parent_id||null);
+  $("saveCategoryBtn").textContent="Save category";$("cancelCategoryBtn").classList.remove("hidden");$("categoryForm").scrollIntoView({behavior:"smooth",block:"center"});
+}
+$("categoryForm").onsubmit=async e=>{
+  e.preventDefault();
+  const id=$("categoryId").value,name=$("categoryName").value.trim(),parentId=syncCategoryParent(),isInternal=false;
+  if(parentId===id){categoryMsg("A category cannot be its own parent.","error");return;}
+  let ancestor=parentId,guard=new Set();
+  while(ancestor){if(ancestor===id){categoryMsg("This would create a category loop. Choose a different parent.","error");return;}if(guard.has(ancestor))break;guard.add(ancestor);ancestor=categories.find(c=>c.id===ancestor)?.parent_id||null;}
+  const payload={name,parent_id:parentId,is_internal:isInternal};
+  const result=id?await sb.from("product_categories").update(payload).eq("id",id):await sb.from("product_categories").insert(payload);
+  if(result.error){categoryMsg("Could not save category: "+result.error.message,"error");return;}
+  categoryMsg(id?"Category updated.":"Category created.","ok");resetCategoryForm();await loadCategories();await load();
+};
+$("cancelCategoryBtn").onclick=()=>resetCategoryForm();
+
+async function deleteCategory(id){
+  const c=categories.find(x=>x.id===id);if(!c)return;
+  const isPermanent=!!c.is_internal && (c.name||"").trim().toLowerCase()==="uncategorized / reassign later";
+  if(isPermanent){categoryMsg('Uncategorized / Reassign Later is permanent and cannot be deleted.',"error");return;}
+  const holding=categories.find(x=>x.is_internal && (x.name||"").trim().toLowerCase()==="uncategorized / reassign later");
+  if(!holding){categoryMsg('Could not find the permanent "Uncategorized / Reassign Later" category. No changes were made.',"error");return;}
+  const subtreeIds=[id];
+  for(let i=0;i<subtreeIds.length;i++)categories.filter(x=>x.parent_id===subtreeIds[i]).forEach(child=>{if(!subtreeIds.includes(child.id))subtreeIds.push(child.id);});
+  if(subtreeIds.includes(holding.id)){categoryMsg('This category contains the permanent holding category and cannot be deleted.',"error");return;}
+  const descendants=subtreeIds.length-1;
+  if(!confirm(`Delete "${c.name}" and all ${descendants} subcategor${descendants===1?'y':'ies'} beneath it? Products assigned anywhere in this tree will be moved to Uncategorized / Reassign Later. Product records and images will be preserved.`))return;
+  const {error}=await sb.rpc('delete_category_tree',{category_to_delete:id});
+  if(error){categoryMsg('Could not delete category tree: '+error.message+'. No success is assumed; please refresh and check the category tree.',"error");return;}
+  categoryMsg('Category tree deleted. Its products were reassigned to Uncategorized / Reassign Later; product records and images were preserved.',"ok");
+  resetCategoryForm();await loadCategories();await load();
+}
+function filters(){
+  const holder=$("categoryFilterCascade"),visible=categories.filter(c=>!c.is_internal);
+  const selected=visible.find(c=>c.id===categoryFilterId);let path=[];
+  if(selected){let cur=selected,seen=new Set();while(cur&&!seen.has(cur.id)){seen.add(cur.id);path.unshift(cur);cur=visible.find(c=>c.id===cur.parent_id);}}
+  holder.innerHTML="";
+  function addLevel(parentId,depth){
+    const children=visible.filter(c=>(c.parent_id||null)===(parentId||null)).sort((a,b)=>a.name.localeCompare(b.name));
+    if(!children.length)return;
+    const sel=document.createElement("select");sel.setAttribute("aria-label",depth===0?"Filter by main category":`Filter by subcategory level ${depth}`);
+    sel.innerHTML=`<option value="">${depth===0?"All categories":"All subcategories at this level"}</option>`+children.map(c=>`<option value="${esc(c.id)}">${esc(c.name)}</option>`).join("");
+    const wanted=path[depth]?.id;if(wanted&&children.some(c=>c.id===wanted))sel.value=wanted;
+    holder.appendChild(sel);
+    sel.onchange=()=>{categoryFilterId=sel.value||"";while(sel.nextElementSibling)sel.nextElementSibling.remove();if(sel.value)addLevel(sel.value,depth+1);render();};
+    if(sel.value)addLevel(sel.value,depth+1);
+  }
+  addLevel(null,0);
+  categoryFilterId=path.length?path[path.length-1].id:"";
+}
+function productMatchesCategory(p, selectedId){
+  if(!selectedId)return true;
+  const chosen=categories.find(c=>c.id===selectedId);if(!chosen)return true;
+  if(p.category_node_id){let cur=categories.find(c=>c.id===p.category_node_id),seen=new Set();while(cur&&!seen.has(cur.id)){if(cur.id===selectedId)return true;seen.add(cur.id);cur=categories.find(c=>c.id===cur.parent_id);}return false;}
+  const prefix=categoryPath(selectedId);return (p.category||"")===prefix||(p.category||"").startsWith(prefix+" / ");
+}
+function render(){let q=$("adminSearch").value.toLowerCase().trim(),cat=categoryFilterId,arr=products.filter(p=>(productTab==="all"||(productTab==="published"&&p.is_published)||(productTab==="drafts"&&!p.is_published))&&productMatchesCategory(p,cat)&&[p.name,p.category,p.brand,p.model_number].filter(Boolean).join(" ").toLowerCase().includes(q));$("adminProducts").innerHTML=arr.map(p=>`<article class="item"><img class="thumb" src="${esc(p.image_url||"")}" onerror="this.style.visibility='hidden'"><div class="product-info"><h3>${esc(p.name)}</h3><p>${esc(p.category_node_id?categoryPath(p.category_node_id):(p.category||"Uncategorized / Reassign Later"))}${p.brand?" · "+esc(p.brand):""}${p.model_number?" · "+esc(p.model_number):""}</p><span class="pill ${p.is_published?"live":"draft"}">${p.is_published?"Published":"Draft"}</span></div><div class="stock-price"><strong>Stock: ${esc(p.stock_pcs??0)}</strong><span>Price: ${p.price==null||p.price===""?"—":esc(Number(p.price).toLocaleString(undefined,{minimumFractionDigits:0,maximumFractionDigits:2}))}</span></div><div class="row item-actions"><button class="btn secondary" data-edit="${p.id}">Edit</button><button class="btn secondary" data-toggle="${p.id}">${p.is_published?"Unpublish":"Publish"}</button><button class="btn danger" data-delete="${p.id}">Delete</button></div></article>`).join("");$("noProducts").textContent=productTab==="drafts"?"No drafts yet.":productTab==="published"?"No published products yet.":"No products yet.";$("noProducts").classList.toggle("hidden",arr.length!==0);$("adminProducts").querySelectorAll("[data-edit]").forEach(b=>b.onclick=()=>edit(b.dataset.edit));$("adminProducts").querySelectorAll("[data-toggle]").forEach(b=>b.onclick=()=>toggle(b.dataset.toggle));$("adminProducts").querySelectorAll("[data-delete]").forEach(b=>b.onclick=()=>del(b.dataset.delete));}
+async function load(){let {data,error}=await sb.from("products").select("*").order("created_at",{ascending:false});if(error){msg("Could not load products: "+error.message,"error");return;}products=data||[];filters();render();}
+function edit(id){let p=products.find(x=>x.id===id);if(!p)return;reset();$("productId").value=p.id;$("editorTitle").textContent="Edit product";$("name").value=p.name||"";$("category").value=p.category_node_id||"";if(!$("category").value&&p.category){const match=categories.find(c=>categoryPath(c.id)===p.category||(!c.parent_id&&c.name===p.category));if(match)$("category").value=match.id;}buildCategoryCascade($("category").value||null);$("brand").value=p.brand||"";$("model").value=p.model_number||"";$("stockPcs").value=p.stock_pcs??0;$("price").value=p.price??"";$("description").value=p.description||"";$("specifications").value=p.specifications||"";$("published").checked=!!p.is_published;currentImageUrl=p.image_url||null;if(currentImageUrl){$("imagePreview").src=currentImageUrl;$("imagePreview").classList.remove("hidden");}editor.classList.remove("hidden");editor.scrollIntoView({behavior:"smooth"});}
+async function upload(file){if(!file)return currentImageUrl;if(file.size>5*1024*1024)throw Error("Image must be 5 MB or smaller.");if(!["image/jpeg","image/png","image/webp"].includes(file.type))throw Error("Use JPG, PNG, or WebP.");let ext=file.type==="image/png"?"png":file.type==="image/webp"?"webp":"jpg",path=crypto.randomUUID()+"."+ext,{error}=await sb.storage.from(BUCKET).upload(path,file,{contentType:file.type});if(error)throw error;return sb.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;}
+$("loginForm").onsubmit=async e=>{e.preventDefault();let {error}=await sb.auth.signInWithPassword({email:$("email").value.trim(),password:$("password").value});if(error){loginMsg(error.message);return;}await init();};
+$("logoutBtn").onclick=async()=>{await sb.auth.signOut();signed(false);};
+$("newProductBtn").onclick=()=>{reset();buildCategoryOptions();editor.classList.remove("hidden");editor.scrollIntoView({behavior:"smooth"});};$("cancelBtn").onclick=reset;
+$("image").onchange=()=>{pendingFile=$("image").files[0]||null;if(pendingFile){$("imagePreview").src=URL.createObjectURL(pendingFile);$("imagePreview").classList.remove("hidden");}};
+$("productForm").onsubmit=async e=>{e.preventDefault();if(!$("category").value){msg("Please choose a category, including the most specific level available.","error");return;}let b=$("saveBtn");b.disabled=true;b.textContent="Saving…";try{currentImageUrl=await upload(pendingFile);let v=values(),id=$("productId").value,r=id?await sb.from("products").update(v).eq("id",id):await sb.from("products").insert(v);if(r.error)throw r.error;msg(id?"Product updated.":"Product added.","ok");reset();await load();}catch(err){msg("Could not save product: "+err.message,"error");}finally{b.disabled=false;b.textContent="Save product";}};
+async function toggle(id){
+  const p=products.find(x=>x.id===id);if(!p)return;
+  const next=!p.is_published;
+  const {data,error}=await sb.from("products").update({is_published:next}).eq("id",id).select("id,is_published").maybeSingle();
+  if(error){msg("Could not update product status: "+error.message,"error");return;}
+  if(!data){msg("Status was not changed. Supabase is blocking product updates; the Cool Wave Test products UPDATE policy needs fixing.","error");return;}
+  msg(next?"Product published.":"Product unpublished and moved to Drafts.","ok");await load();
+}
+async function del(id){let p=products.find(x=>x.id===id);if(!p||!confirm('Delete "'+p.name+'"? This cannot be undone.'))return;let {error}=await sb.from("products").delete().eq("id",id);if(error){msg("Could not delete: "+error.message,"error");return;}msg("Product deleted.","ok");await load();}
+$("adminSearch").oninput=render;
+document.querySelectorAll("[data-product-tab]").forEach(b=>b.onclick=()=>{productTab=b.dataset.productTab;document.querySelectorAll("[data-product-tab]").forEach(x=>{x.classList.toggle("active",x===b);x.classList.toggle("secondary",x!==b);});render();});
+$("manageCategoriesBtn").onclick=()=>{$("categoryManager").classList.remove("hidden");loadCategories();$("categoryManager").scrollIntoView({behavior:"smooth",block:"start"});};
+$("closeCategoriesBtn").onclick=()=>$("categoryManager").classList.add("hidden");
+async function init(){let {data:{session}}=await sb.auth.getSession();if(session){signed(true);await loadCategories();await load();}else signed(false);sb.auth.onAuthStateChange((_event,s)=>{if(s){signed(true);loadCategories().then(load);}else signed(false);});}
+init();
+</script></body></html>
